@@ -1,6 +1,6 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('coffees', table => {
+  return knex.schema.createTableIfExists('coffees', table => {
       table.increments()
       table.text('name')
       table.text('roaster')

@@ -1,5 +1,7 @@
 const database = require("./knex-config");
 
+// can I set up a db var like: const db = 'database('coffees')'
+
 module.exports = {
     list(){
         return database('coffees')
