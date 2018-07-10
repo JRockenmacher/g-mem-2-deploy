@@ -21,6 +21,9 @@ exports.seed = function(knex, Promise) {
   return knex('coffees').del()
     .then(function () {
       // Inserts seed entries
-      return knex('coffees').insert(data);
-    });
-};
+      return knex('coffees').insert(data)
+    })
+    .then( () => {
+      knex.raw(`ALTER SEQUENCE coffees_id_seq RESTART WITH ${data.length + 1}`)
+    })
+}
